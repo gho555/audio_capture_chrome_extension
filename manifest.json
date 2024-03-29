@@ -1,5 +1,5 @@
 {
-  "manifest_version": 2,
+  "manifest_version": 3,
   "name": "Audio Capture Extension",
   "version": "1.0",
   "permissions": [
@@ -7,17 +7,16 @@
     "storage",
     "tabCapture"
   ],
-  "browser_action": {
+  "action": {
     "default_popup": "popup.html",
     "default_icon": "icon.png"
-  },
-  "background": {
-    "scripts": ["background.js"],
-    "persistent": false
   },
   "icons": {
     "16": "icon.png",
     "48": "icon.png",
     "128": "icon.png"
-  }
+  },
+  "host_permissions": [
+    "*://*/*"
+  ]
 }
