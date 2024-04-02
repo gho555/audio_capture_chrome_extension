@@ -13,11 +13,16 @@ let chunks = [];
 //   }
 // });
 
+
 function startCapture() {
+  
   chrome.tabCapture.capture({
     audio: true,
     video: false,
   }, (stream) => {
+    let context = new AudioContext();
+    let tstream = context.createMediaStreamSource(stream);
+    tstream.connect(context.destination);
     mediaRecorder = new MediaRecorder(stream);
 
     mediaRecorder.ondataavailable = (event) => {
